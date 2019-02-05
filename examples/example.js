@@ -1,23 +1,22 @@
 var printer = require("../node-thermal-printer");
 printer.init({
-  type: printer.printerTypes.EPSON,  // 'star' or 'epson'
-  interface: '/dev/usb/lp0',         // Linux interface
-  width: 48,                         // Number of characters in one line (default 48)
-  characterSet: 'SLOVENIA',          // Character set default SLOVENIA
-  removeSpecialCharacters: false,    // Removes special characters - default: false
-  replaceSpecialCharacters: true,    // Replaces special characters listed in config files - default: true
+  type: printer.printerTypes.EPSON, // 'star' or 'epson'
+  interface: "/dev/usb/lp0", // Linux interface
+  width: 48, // Number of characters in one line (default 48)
+  characterSet: "SLOVENIA", // Character set default SLOVENIA
+  removeSpecialCharacters: false, // Removes special characters - default: false
+  replaceSpecialCharacters: true // Replaces special characters listed in config files - default: true
   // lineChar: "=",                  // Use custom character for drawing lines
   // ip: "localhost",                // Ethernet printing IP
   // port: 9000                      // Ethernet printing PORT
 });
 
-printer.isPrinterConnected(function(response){
+printer.isPrinterConnected(function(response) {
   console.log("Printer connected:", response);
 });
 
-
 printer.alignCenter();
-printer.printImage('./assets/olaii-logo-black-small.png', function(done){
+printer.printImage("./assets/olaii-logo-black-small.png", function(done) {
   printer.beep();
   printer.alignLeft();
   printer.newLine();
@@ -78,11 +77,10 @@ printer.printImage('./assets/olaii-logo-black-small.png', function(done){
   printer.table(["One", "Two", "Three", "Four"]);
 
   printer.tableCustom([
-    { text:"Left", align:"LEFT", width:0.5 },
-    { text:"Center", align:"CENTER", width:0.25, bold:true },
-    { text:"Right", align:"RIGHT", width:0.25 }
+    { text: "Left", align: "LEFT", width: 0.5 },
+    { text: "Center", align: "CENTER", width: 0.25, bold: true },
+    { text: "Right", align: "RIGHT", width: 0.25 }
   ]);
-
 
   printer.cut();
   printer.openCashDrawer();

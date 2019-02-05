@@ -1,7 +1,7 @@
 var printer = require("../node-thermal-printer");
 printer.init({
   type: printer.printerTypes.EPSON,
-  interface: '/dev/usb/lp0'
+  interface: "/dev/usb/lp0"
 });
 
 printer.println("MAXI CODE");

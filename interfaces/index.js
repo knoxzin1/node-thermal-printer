@@ -8,17 +8,17 @@ function getInterface(uri, options) {
 
   const net = parseNet.exec(uri);
   if (net) {
-    const Mod = require('./net');
+    const Mod = require("./net");
     return new Mod(net[1], net[2], options);
   }
 
   const printer = parsePrinter.exec(uri);
   if (printer) {
-    const Mod = require('./printer');
+    const Mod = require("./printer");
     return new Mod(printer[1], printer[2]);
   }
 
-  const Mod = require('./file');
+  const Mod = require("./file");
   return new Mod(uri);
 }
 

@@ -45,7 +45,14 @@ interface printer {
   drawLine(): void;
   leftRight(left: string, right: string): void;
   table(data: string[]): void;
-  tableCustom(data: { text: string; align?: "CENTER" | "RIGHT" | "LEFT"; width?: number; bold?: boolean }[]): void;
+  tableCustom(
+    data: {
+      text: string;
+      align?: "CENTER" | "RIGHT" | "LEFT";
+      width?: number;
+      bold?: boolean;
+    }[]
+  ): void;
   isPrinterConnected(existsCallback: (exists: boolean) => void): void;
   printQR(
     str: string,
