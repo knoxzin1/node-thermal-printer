@@ -1,11 +1,15 @@
 type printerTypes = {
   EPSON: "epson";
-  STAR: "start";
+  STAR: "star";
+  BEMATECH: "bematech";
 };
 interface printer {
   printerTypes: printerTypes;
   init(initConfig: {
-    type?: printerTypes["EPSON"] | printerTypes["STAR"];
+    type?:
+      | printerTypes["EPSON"]
+      | printerTypes["STAR"]
+      | printerTypes["BEMATECH"];
     interface: string;
     width?: number;
     characterSet?: string;
